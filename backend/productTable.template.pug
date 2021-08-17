@@ -1,0 +1,58 @@
+doctype html
+html(lang='en')
+    head
+        title Qiri
+        style   
+            include ./css/bootstrap.css
+        script(src='./js/bootstrap.js')
+    body
+        .container
+            //header
+            .row
+                .head
+                    <link rel="icon" href="https://sellvation.nl/wp-content/uploads/2021/07/favicon.ico" sizes="192x192" />
+                    .col-md-12
+                        img(src="https://sellvation.nl/wp-content/uploads/2021/01/Logo-Sellvation.svg")      
+            //Orderlines
+            if products.length > 0
+                .row   
+                    .col-md-12
+                        .card
+                            h5.card-heading Products
+                            .card-devider 
+                                .table-responsive
+                                    table.table
+                                        th  SKU
+                                        th  Name
+                                        th  Product ID
+                                        th  Unit Type 
+                                        th  Currency 
+                                        th  VAT
+                                        th  List Price 
+                                        th  Selling Price
+                                        th  Unit Quantity 
+                                        th  Unavailable 
+                                        th  Available in Webshop 
+                                        th  Organic 
+                                        th  Ecological 
+                                        th  Private Label 
+                                        each product in products
+                                            tr 
+                                                td #{product.sku}
+                                                td #{product.name}
+                                                td #{product.product_id}
+                                                td #{product.unit_type}
+                                                td #{product.currency}
+                                                td #{product.vat}
+                                                td #{product.list_price}
+                                                td #{product.selling_price}
+                                                td #{product.unit_quantity}
+                                                td #{product.unavailable}
+                                                td #{product.available_in_webshop}
+                                                td #{product.is_organic}
+                                                td #{product.is_ecological}
+                                                td #{product.is_private_label}
+
+                            
+                                
+
