@@ -1,11 +1,11 @@
-class ProductInsert {
+class Product {
     /**
      * @typedef Pricing
-     * @property {number} vat
-     * @property {string} currency
-     * @property {number} listPrice
-     * @property {number} sellingPrice
-     * @property {number} unitQuantity
+     * @property {number} vat - as an integer
+     * @property {string} currency - in ISO 4217
+     * @property {number} listPrice - in cents
+     * @property {number} sellingPrice - in cents
+     * @property {number} unitQuantity - as an integer
      * 
      * @typedef Availability
      * @property {boolean} unavailable
@@ -26,11 +26,9 @@ class ProductInsert {
      * @param {Classification} args.product.classification
      */
     constructor(args){
-        console.log(args)
         const {
             sku,
             product,
-            
         } = args
         const {
             name, 
@@ -57,6 +55,12 @@ class ProductInsert {
             isPrivateLabel
         } = classification
 
+        /* 
+        * We need to change the casing of the variables, PostgreSQL is not 
+        * casesensitive when it comes to columnnames. productID will be productid
+        * for example, so I chose to use the snake_case as the chase type in the 
+        * PostgreSQL database. That meanse we need to change the variablenames. 
+        */
         this.sku = sku
         this.name = name
         this.product_id = productID
@@ -73,4 +77,4 @@ class ProductInsert {
         this.is_private_label = isPrivateLabel
     }
 }
-module.exports = ProductInsert
+module.exports = Product

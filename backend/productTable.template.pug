@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
     head
-        title Qiri
+        title Qiri Casus
         style   
             include ./css/bootstrap.css
         script(src='./js/bootstrap.js')
@@ -24,35 +24,12 @@ html(lang='en')
                                     table.table
                                         th  SKU
                                         th  Name
-                                        th  Product ID
-                                        th  Unit Type 
-                                        th  Currency 
-                                        th  VAT
                                         th  List Price 
-                                        th  Selling Price
-                                        th  Unit Quantity 
-                                        th  Unavailable 
-                                        th  Available in Webshop 
-                                        th  Organic 
-                                        th  Ecological 
-                                        th  Private Label 
                                         each product in products
                                             tr 
                                                 td #{product.sku}
                                                 td #{product.name}
-                                                td #{product.product_id}
-                                                td #{product.unit_type}
-                                                td #{product.currency}
-                                                td #{product.vat}
                                                 td #{product.list_price}
-                                                td #{product.selling_price}
-                                                td #{product.unit_quantity}
-                                                td #{product.unavailable}
-                                                td #{product.available_in_webshop}
-                                                td #{product.is_organic}
-                                                td #{product.is_ecological}
-                                                td #{product.is_private_label}
-
                             
                                 
 
