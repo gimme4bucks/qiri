@@ -11,7 +11,7 @@ const qiriBaseURL = process.env.QIRI_URL
 const prisma = new PrismaClient()
 
 const app = express()
-const port = 9000
+const port = 3000
 
 app.use(express.json())
 
