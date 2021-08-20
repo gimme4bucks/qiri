@@ -86,7 +86,7 @@ app.get('/table', async (req, res) => {
 
     const template = Path.resolve(__dirname, `./productTable.template.pug`)
     let products = []
-
+    let failedToRetrieve = []
     for (let sku of skus){
         const product = (await axios.get(`${qiriBaseURL}&sku=${sku}`).catch(err => {
             console.error(err.response.data)
@@ -106,7 +106,7 @@ app.get('/table', async (req, res) => {
     const file = pug.renderFile(template, {products})
 
     if(file) return res.send(file)
-    else return res.status(404).json({message: 'Could not find products'})
+    else return res.status(404).json({message: 'Could not find products', failedToRetrieve})
 })
 
 
