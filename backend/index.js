@@ -72,7 +72,7 @@ app.get('/product/:sku', async (req, res) => {
             return res.status(404).json({message: 'Could not find product'})
         }
     }catch(err){
-        console.error(err)
+        console.error(err.response.data)
         return res.status(500).json({message: 'Something went wrong trying to retreive product, please look at the logs.'})
     }
 })
@@ -101,7 +101,7 @@ app.get('/table', async (req, res) => {
     
         products = [...products, new Product(product)]
     }
-
+    if(products.length === 0) return res.status(404).json({message: 'Could not find products', failedToRetrieve})
     // Create an HTML-string based on the template
     const file = pug.renderFile(template, {products})
 
